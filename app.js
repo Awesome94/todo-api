@@ -8,6 +8,16 @@ const app = express()
 
 mongoose.connect("mongodb://localhost:27017/todolist")
 
+const db  = mongoose.connection;
+
+db.on("error", (err)=>{
+  console.error("connection error: err");
+});
+
+db.once("open", ()=>{
+  console.log("db connection successful")
+})
+
 app.use(function (req, res, next) {
   res.header("Allow-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
