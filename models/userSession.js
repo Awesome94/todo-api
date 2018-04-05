@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 
-const schema = mongoose.schema
+const Schema = mongoose.Schema;
 
 const UserSessionSchema = new Schema({
   UserId: {
-    type: Number,
+    type: String,
     default: -1
   },
   timestamp: {

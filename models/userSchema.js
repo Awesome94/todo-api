@@ -20,7 +20,7 @@ const UserSchema = new Schema({
     return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
   };
 
-  UserSchema.methods.validPassword = function (password) {
+  UserSchema.methods.validPassword = function(password) {
     return bcrypt.compareSync(password, this.password);
   };
 
