@@ -1,8 +1,16 @@
-const mongoose = require ("mongoose");
+const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-const TodoItemsSchema = new Schema ({
+const UserSchema = new Schema({
+
+});
+
+const Login = new Schema({
+
+});
+
+const TodoItemsSchema = new Schema({
   text: String,
   CreatedAt: {
     type: Date,
@@ -12,12 +20,12 @@ const TodoItemsSchema = new Schema ({
     type: Date,
     default: Date.now
   },
-  status: {type: Boolean, default: false}
+  status: { type: Boolean, default: false }
 });
 
-const TodoListSchema = new Schema ({
+const TodoListSchema = new Schema({
   text: String,
-  CreatedAt:{
+  CreatedAt: {
     type: Date,
     default: Date.now()
   },
@@ -25,8 +33,9 @@ const TodoListSchema = new Schema ({
     type: Date,
     default: Date.now()
   },
-  items: [TodoItemsSchema],
-  todoText: String
+  items: [TodoItemsSchema]
 });
 
-export default mongoose.model('Todo', Schema);
+var TodoList = mongoose.model("TodoList", TodoListSchema)
+
+modules.exports.TodoList = TodoList;
